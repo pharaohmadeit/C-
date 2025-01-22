@@ -22,7 +22,8 @@ int main() {
     cout << format("string1 after erase:\n{}\n\n", string1);
     
     size_t position{string1.find(" ")};
-    
+
+    //    replace all spaces with period
     while (position != string::npos) {
         string1.replace(position, 1, ".");
         position = string1.find(" ", position + 1);
@@ -30,6 +31,9 @@ int main() {
     cout << format("After first replacement:\n{}\n\n", string1);
     
     position = string1.find(".");
+
+    //    replace all periods with two semicolons
+    //    NOTE: this will overwrite characters
     while (position != string::npos) {
         string1.replace(position, 2, "xxxxx;;yyy", 5, 2);
         position = string1.find(".", position + 2);
