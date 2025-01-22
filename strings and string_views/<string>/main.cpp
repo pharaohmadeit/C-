@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  fig08_06
+//  fig08_07
 //
-//  Created by Pharaoh Tornes on 1/18/25.
+//  Created by Pharaoh Tornes on 1/19/25.
 //
 #include <string>
 #include <format>
@@ -10,26 +10,29 @@
 using namespace std;
 
 int main() {
-    const string s{"noon is 12pm; midnight is not"};
-    cout << "Original string: " << s << endl;
+    string string1{"The values in any left subtree"
+                    "\nare less than the value in the"
+                    "\nparent node and the values in"
+                    "\nany right subtree are greater"
+                    "\nthan the value in the parent node"};
     
-    cout << format("s.find(\"is\"): {}\ns.rfind(\"is\"): {}\n", s.find("is"), s.rfind("is"));
+    cout << format("Original string:\n{}\n\n", string1);
     
-    auto location{s.find_first_of("misop")};
-    cout << format("s.find_first_of(\"misop\") found {} at {}\n", s.at(location), location);
+    string1.erase(62);
+    cout << format("string1 after erase:\n{}\n\n", string1);
     
-    location = s.find_last_of("misop");
-    cout << format("s.find_last_of(\"misop\") found {} at {}\n", s.at(location), location);
+    size_t position{string1.find(" ")};
     
-    location = s.find_first_not_of("noi spm");
-    cout << format("s.find_first_not_of(\"noi spm\") found {} at {}", s.at(location), location);
-    
-    location = s.find_first_not_of("12 noi spm");
-    cout << format("s.find_first_not_of(\"12 noi spm\") found {} at {}", s.at(location), location);
-    
-    location = s.find_first_not_of("noon is 12pm; midnight is not");
-    
-    if (location == string::npos) {
-        cout << format("\n{}: not found\n", "s.find_first_not_of(\"noon is 12pm; midnight is not\")");
+    while (position != string::npos) {
+        string1.replace(position, 1, ".");
+        position = string1.find(" ", position + 1);
     }
+    cout << format("After first replacement:\n{}\n\n", string1);
+    
+    position = string1.find(".");
+    while (position != string::npos) {
+        string1.replace(position, 2, "xxxxx;;yyy", 5, 2);
+        position = string1.find(".", position + 2);
+    }
+    cout << format("After second replacement:\n{}\n\n", string1);
 }
