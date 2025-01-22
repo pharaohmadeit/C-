@@ -38,6 +38,8 @@ int main() {
 }
 
 /*
+
+//    converting string to int and vice versa
 #include <string>
 #include <iostream>
 using namespace std;
