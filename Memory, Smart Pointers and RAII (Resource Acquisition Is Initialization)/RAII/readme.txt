@@ -1,4 +1,4 @@
-Automatic RAII and Scope
+Demonstrate automatic RAII by using block scope and global namespace scope rules
 
 
 Automatic Storage Duration:
