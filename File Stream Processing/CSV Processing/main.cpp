@@ -1,4 +1,4 @@
-//  Reading a dataset from CSV file, then analyzing it.
+//  Reading a dataset from CSV file, then analyze it.
 //  main.cpp
 //  fig08_15
 //
