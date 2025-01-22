@@ -12,7 +12,7 @@
 using namespace std;
 
 int main() {
-    if (ifstream input{"/Users/pharaohtornes/Documents/Computer Science/C++/CPlusPlus20FundamentalsLiveLessons-master/examples/lesson08/fig08_11/fig08_11/clients.txt", ios::in}) {
+    if (ifstream input{"clients.txt", ios::in}) {
         cout << format("{:<10}{:<13}{:>7}\n", "Account", "Name", "Balance");
         
         int account;
