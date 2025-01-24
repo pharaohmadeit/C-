@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  SpaceTime.cpp
 //  "SpaceTime" is an experimental user-defined class solely demonstrating the use of the C++20 three-way comparison (spaceship) operator
 //
 //  Created by Pharaoh Tornes on 1/23/25.
