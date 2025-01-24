@@ -56,13 +56,13 @@ int main() {
     cout << format("t1 >= t3 {}\n", t1 >= t3);
     
     //  using <=> to perform comparisons
-    if ((t1 <=> t2) == 0) {
+    if ((t1 <=> t2) == 0) {	//	std::strong_ordering::equivalent
         cout << "t1 is equal to t2\n";
     }
-    if ((t1 <=> t3) > 0) {
+    if ((t1 <=> t3) > 0) {	//	std::strong_ordering::greater
         cout << "t1 is greater than t3\n";
     }
-    if ((t1 <=> t2) < 0) {
+    if ((t1 <=> t2) < 0) {	//	std::strong_ordering::less
         cout << "t3 is less than t1\n";
     }
 }
