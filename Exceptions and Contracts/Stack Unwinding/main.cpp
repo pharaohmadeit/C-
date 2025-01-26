@@ -1,4 +1,5 @@
-//  Demonstrate stack unwinding in C++ "if you don't catch an exception, stack unwinding occurs. if you never catch the exception, terminate from the C++ standard library is called which in turn called abort() which kills the application
+//  Demonstrate stack unwinding in C++ 
+//  "If you don't catch an exception, stack unwinding occurs. If you never catch the exception, terminate (from the C++ standard library) is called, which in turn calls abort() which kills the application
 //  main.cpp
 //  fig12_04
 //
