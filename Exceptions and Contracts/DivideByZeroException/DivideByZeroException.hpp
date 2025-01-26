@@ -8,7 +8,8 @@
 
 using namespace std;
 
-//  DivideByZeroException objects should be thrown by functions upon detecting division-by-zero
+//    Inherit the C++ standard library runtime_error base class and derive a custom exception class
+//    C++ Core Guidelines recommends clearly naming problem so such an exception is less likely to be confused with exceptions thrown by other libaries
 class DivideByZeroException : public runtime_error {
     
 public:
