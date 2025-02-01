@@ -9,8 +9,9 @@ using namespace std;
 
 template<typename T>
 int binarySearch(const vector<T>& items, const T& key)
-  [[pre: items.size() > 0]]
-  [[pre audit: is_sorted(items.begin(), items.end())]] {
+  [[pre: items.size() > 0]]  // default precondition
+  [[pre audit: is_sorted(items.begin(), items.end())]] // audit precondtion only occurs if compiler flag is activated
+{
   size_t low{0};
   size_t high{items.size() - 1};
   size_t middle{(low + high + 1) / 2};
