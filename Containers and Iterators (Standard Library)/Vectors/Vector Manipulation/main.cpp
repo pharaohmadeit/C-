@@ -6,7 +6,7 @@
 //
 #include <algorithm>    //  copy algorithm
 #include <iterator> // input/output stream iterator
-#include <ranges>
+#include <ranges>    //    ranged-based operations
 #include <vector>
 #include <format>
 #include <iostream>
@@ -16,17 +16,18 @@ using namespace std;
 int main() {
     vector values{1, 2, 3, 4, 5};   //  class template argument deduction
     vector<int> integers{values.cbegin(), values.cend()};   //  vector constructor receives iterators as arguments, which gives ability to iterate through individual elements and pass by value
-    ostream_iterator<int> output{cout, " "};    //  second argument is a delimiter string
+    ostream_iterator<int> output{cout, " "};    //  second argument is a delimiter string for output stream iterator
     
     cout << "integers contains: ";
     copy(integers.cbegin(), integers.cend(), output);   //  common ranges copy algorithm, output the container without a for-loop
-    
+
+    //    front and back member-functions are very important
     cout << format("\nfront: {}\nback: {}\n\n", integers.front(), integers.back());
     
     integers[0] = 7;    //  square bracket doesn't conduct bounds checking
     integers.at(2) = 10;    // at member function validates index number and will throw exception
     
-    //  insert 22 as the second element
+    //  insert 22 as the second element; const_iterator as first argument
     integers.insert(integers.cbegin() + 1, 22);
     
     cout << "Contents of vector integers after changes: ";
