@@ -1,4 +1,4 @@
-//  Queue adaptor (FIFO) first-in, first-out
+//  Standard libary queue adaptor class template; (FIFO) first-in, first-out
 //  main.cpp
 //  fig13_11
 //
