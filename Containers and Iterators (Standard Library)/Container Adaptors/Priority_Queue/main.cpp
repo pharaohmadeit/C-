@@ -1,4 +1,4 @@
-//  Standary libary priority_queue adaptor class
+//  Standard libary priority_queue adaptor class
 //  main.cpp
 //  fig13_12
 //
