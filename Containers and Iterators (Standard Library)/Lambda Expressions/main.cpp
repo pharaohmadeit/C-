@@ -24,7 +24,7 @@ int main() {
     cout << "\nDisplay each element multiplied by two: ";
     ranges::for_each(values, [](auto i) {cout << i * 2 << " ";});
     
-    //  add each element to sum; use lambda expression and capture the sum by reference in the introducer so it can be modified within the scope of the lambda
+    //  add each element to sum; use lambda expression and capture the sum by reference in the introducer so it can be summed within the body of the lambda with the iterator in the parameter list
     int sum{0};
     ranges::for_each(values, [&sum](auto i) {sum += i;});
     cout << "\nSum of value's elements is: " << sum << "\n";
