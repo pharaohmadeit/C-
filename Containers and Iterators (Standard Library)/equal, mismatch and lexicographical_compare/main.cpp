@@ -36,7 +36,7 @@ int main() {
     
     //  check for mismatch between a1 and a3
     auto location{ranges::mismatch(a1, a3)};
-    cout << format("a1 and a3 mismatch at index {} ({} vs {})\n", (location.in1 - a1.begin()), *location.in1, *location.in2);
+    cout << format("a1 and a3 mismatch at index {} ({} vs {})\n", (location.in1 - a1.cbegin()), *location.in1, *location.in2);
     
     string s1{"HELLO"};
     string s2{"BYE BYE"};
