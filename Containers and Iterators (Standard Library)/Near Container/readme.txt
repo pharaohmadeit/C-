@@ -1,3 +1,5 @@
+Near Containers: built-in array, bitset, String, valarray
+
 bitset Near Container
 
 Highly specialized container specifically for bit manuipulation
