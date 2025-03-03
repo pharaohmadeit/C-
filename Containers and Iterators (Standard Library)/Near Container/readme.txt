@@ -1,8 +1,11 @@
 Near Containers: built-in array, bitset, String, valarray
 
 bitset Near Container
+-Highly specialized container specifically for bit manuipulation
 
-Highly specialized container specifically for bit manuipulation
+Examples:
+
+/* 
 
 b.set(bitNumber);
 
@@ -45,3 +48,4 @@ b.to_string()
 b.to_ulong()
 
 b.to_ullong()
+*/
