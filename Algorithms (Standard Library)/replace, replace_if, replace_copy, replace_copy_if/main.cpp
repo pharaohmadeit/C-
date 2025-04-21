@@ -1,4 +1,4 @@
-//  Algorithms replace, replace_if, replace_copy and replace_copy_if
+//  C++20's std::ranges Algorithms (Standard Template Library): replace, replace_if, replace_copy and replace_copy_if
 //  main.cpp
 //  fig14_05
 //
