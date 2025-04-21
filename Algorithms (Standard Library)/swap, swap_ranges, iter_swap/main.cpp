@@ -1,4 +1,4 @@
-//  C++20 Standard Template Library Algorithms: swap, swap_ranges, iter_swap
+//  C++20's std::ranges Algorithms (Standard Template Library): swap, swap_ranges, iter_swap
 //  main.cpp
 //  fig14_08
 //
