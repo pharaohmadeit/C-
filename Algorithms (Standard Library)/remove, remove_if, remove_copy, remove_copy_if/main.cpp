@@ -1,59 +1,78 @@
-//  C++20's std::ranges algorithms: shuffle, count, count_if, min_element, max_element, minmax_element, transform
+//  C++20's std::ranges Algorithms (Standard Template Library): remove, remove_if, remove_copy, and remove_copy_if
 //  main.cpp
-//  fig14_06
+//  fig14_04
 //
-//  Created by Pharaoh Tornes on 3/13/25.
+//  Created by Pharaoh Tornes on 3/2/25.
 //
 
-#include <algorithm>
-#include <iterator>
-#include <array>
-#include <random>
+#include <algorithm>    //  algorithm definitions
+#include <iterator> //  ostream_iterator; back_inserter
+#include <vector>
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::array a1 {1, 2, 3, 4, 5, 6 , 7 , 8, 9, 10};
-    std::ostream_iterator <int> output {std::cout, " "};
+    vector init {10, 2, 15, 4, 10, 6};  //  CTAD; Class Template Argument Deduction
+    ostream_iterator<int> output {cout, " "};
     
-    std::cout << "a1: ";
-    std::ranges::copy (a1, output);
+    //  initialize with copy of init
+    vector v1 {init};
+    cout << "v1: ";
+    ranges::copy(v1, output);
     
-    //  create random-number engine and use it to help shuffle a1
-    std::default_random_engine randomEngine {std::random_device{}()};
-    std::ranges::shuffle (a1, randomEngine); //  randomly order elements
-    std::cout << "\na1 shuffled: ";
-    std::ranges::copy (a1, output);
+    //  remove all 10s from v1 using the Erase-Remove Idiom (use the vector's erase member function to delete the subrange)
+    auto removed {std::ranges::remove(v1, 10)}; //  returns a subrange containing an iterator pointing to begin/end of removable elements
+    v1.erase(removed.begin(), removed.end());
+    //  alternative C++20 algorithm called std::erase or std::erase_if (the container member functions do not support directly support ranges, but the std::erase free function accomplishes this task by combining the steps into a single algorithm call); erase_if receives as its second argument a unary predicate function, i.e. first-order function is passed to a higher-order function
+    /*
+     std::erase(v1, 10);
+     */
+    cout << "\nv1 after removing 10s: ";
+    ranges::copy(v1, output);
     
-    std::array a2 {100, 2, 8, 1, 40, 3, 8, 8, 9, 10};
-    std::cout << "\n\na2: ";
-    std::ranges::copy (a2, output);
+    //  initialize with copy of init
+    vector v2 {init};
+    cout << "\n\nv2: ";
+    ranges::copy(v2, output);
     
-    //  count number of elements in a2 with value 8
-    auto result1 { std::ranges::count(a2, 8) };
-    std::cout << "\nCount of 8s in a2: " << result1;
+    //  copy from v2 to c1, removing 10s in the process
+    vector<int> c1{};
+    ranges::remove_copy(v2, back_inserter(c1), 10); //  back_inserter is container adapter allowing for vector resizing
+    cout << "\nc1 after copying v2 without 10s: ";
+    ranges::copy(c1, output);
     
-    //  count number of elements in a2 that are greater than 9
-    auto result2 { std::ranges::count_if (a2, [](auto x){ return x > 9; }) };
-    std::cout << "\nCount of numbers greater than 9: " << result2;
+    vector v3{init};    //  initialize with copy of init
+    cout << "\n\nv3: ";
+    ranges::copy(v3, output);
     
-    //  locate minimum element in a2; result is scopped within if statement parenthesis
-    if (auto result { std::ranges::min_element (a2) }; result != a2.end()) {
-        std::cout << "\n\na2 minimum element: " << *result;
-    }
     
-    // locate maximum element in a2; max_element returns the iterator position pointing to the first instanse of the maximum element
-    if (auto result { std::ranges::max_element (a2) }; result != a2.end()) {
-        std::cout << "\na2 maximum element: " << *result;
-    }
+    /* the difference between std::ranges::remove and std::ranges::remove_if:
+     
+     remove is looking for a specific value to remove from a range of values
+     
+     remove_if receives a unary predicate function that looks at the one argument and returns a boolean based on a specified calculation
+     
+     Notes: A unary predicate function is a function that takes one argument and returns a boolean value. It's a type of predicate in first-order predicate calculus.
+     
+     */
+
+    //  remove elements greater than 9 from v3
+    auto greaterThan9{[](auto x) -> bool {return x > 9;}};  //  lambda using explicit return type -> boolean (true or false)
+    auto removed2{ranges::remove_if(v3, greaterThan9)}; //  remove_if is a higher order function which receives a function object to customize behavior and returns an iterator pointing to the elements that are removable
+    v3.erase(removed2.begin(), removed2.end()); //  erase actually erases the begin/end iterator elements
+    cout << "\nv3 after removing elements greater than 9: ";
+    ranges::copy(v3, output);
     
-    //  locate minimum and maximum elements in a2; Structured Bindings introduced in C++17 (also known as unpacking the elements of some object, for example: arrays, standard pair objects, standard tuple objects); max returns the iterator position pointing to the last instance of the maximum element
-    auto [min, max] { std::ranges::minmax_element (a2) };
-    std::cout << "\na2 minimum and maximum elements: " << *min << " and " << *max;
+    vector v4{init};    //  initialize with copy of init
+    cout << "\n\nv4: ";
+    ranges::copy(v4, output);
     
-    //  calculate cube of each element in a1; place results in cubes
-    std::array <int, a1.size()> cubes {};
-    std::ranges::transform (a1, cubes.begin(), [](auto x) { return x * x * x; });
-    std::cout << "\n\na1 values cubed: ";
-    std::ranges::copy (cubes, output);
-    std::cout << "\n";
+    //  copy elements from v4 to c2, removing elements greater than 9
+    vector<int> c2{};
+    ranges::remove_copy_if(v4, back_inserter(c2), greaterThan9);    //  remove_copy_if is a higher order function which receives a function object to customize behavior; creates a copy of the results with second argument using the back_inserter container adapter; first argument is the containter in question;
+    cout << "\nc2 after copying v4 without elements greater than 9: ";
+    ranges::copy(c2, output);
+    cout << "\n";
+    
 }
