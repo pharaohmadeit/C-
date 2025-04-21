@@ -1,4 +1,4 @@
-//    C++20's std::ranges Algorithms (Standard Template Library): fill, fill_n, generate, generate_n
+//  C++20's std::ranges Algorithms (Standard Template Library): fill, fill_n, generate, generate_n
 //  main.cpp
 //  fig14_02
 //
