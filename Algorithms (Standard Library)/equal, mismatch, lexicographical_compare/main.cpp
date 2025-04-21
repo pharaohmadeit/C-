@@ -1,4 +1,4 @@
-//  Algorithms equal, mismatch and lexicographical_compare.
+//  C++20's std::ranges Algorithms (Standard Template Library): equal, mismatch and lexicographical_compare
 //  main.cpp
 //  fig14_03
 //
