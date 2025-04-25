@@ -7,22 +7,20 @@
 #include <iterator>
 #include <iostream>
 
-using namespace std;
-
 int main() {
-    cout << "Enter two integers: ";
+    std::cout << "Enter two integers: ";
     
     //  create istream_iterator for reading int values from cin
-    istream_iterator<int> inputInt{cin};
+    std::istream_iterator<int> inputInt{std::cin};
     
     const int number1{*inputInt};   //  read int from standard input
     ++inputInt; //  move iterator to next input value
     const int number2{*inputInt};   //  read int from standard input
     
     //  create ostream_iterator for writing int values to cout
-    ostream_iterator<int> outputInt{cout};
+    std::ostream_iterator<int> outputInt{std::cout};
     
-    cout << "The sum is: ";
+    std::cout << "The sum is: ";
     *outputInt = number1 + number2;
-    cout << endl;
+    std::cout << std::endl;
 }
