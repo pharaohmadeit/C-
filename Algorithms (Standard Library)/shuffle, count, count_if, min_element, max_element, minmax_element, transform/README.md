@@ -1,3 +1,4 @@
+# shuffle, count, count_if, min_element, max_element, minmax_element, transform
 Demonstrate C++20's std::ranges algorithms: shuffle, count, count_if, min_element, max_element, minmax_element, transform
 
 -shuffle: reorder the elements of a range

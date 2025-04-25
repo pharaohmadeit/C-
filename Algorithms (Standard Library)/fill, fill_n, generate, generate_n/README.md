@@ -1,4 +1,5 @@
-Demonstrate the C++20 std::ranges namespace's fill, fill_n, generate, and generate_n algorithms
+# fill, fill_n, generate, and generate_n
+Demonstrate C++20's std::ranges algorithms: fill, fill_n, generate, generate_n
 
 -fill sets every element in a range to a specific value
 -fill_n sets the first n elements in a range to a specific value
