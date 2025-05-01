@@ -1,5 +1,5 @@
 //  Division By Zero with C++26 Contracts Precondtions
-//  Godbolt Compiler | x86-64 gcc (contracts) | Flags: "-std=c++2a -fcontracts -fcontract-build-level=audit"
+//  Godbolt Compiler | x86-64 gcc (contracts natural syntax) | Flags: "-std=c++2a -fcontracts -fcontract-build-level=audit"
 //  x86-64 gcc (Contracts) -> https://godbolt.org/z/3caEK6x1K
 
 #include <contracts>
