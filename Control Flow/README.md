@@ -29,14 +29,17 @@ Jump statements
 5) goto statement.
 
 Assertion statements (since C++26)
-1) contract_assert statement.
+1) contract_assert statement 
+-> See Contracts (C++26) in the Standard Library Headers
 
 
 try blocks
-1) try block catches exceptions thrown when executing other statements.
+1) try block catches exceptions thrown when executing other statements.  
+-> See Exceptions in the Standard Library Headers
 
 Atomic and Synchronized Blocks
 1) synchronized block, executed in single total order with all synchronized blocks;
 2) atomic block that aborts on exceptions;
 3) atomic block that rolls back on exceptions;
 4) atomic block that commits on exceptions.
+-> TODO
