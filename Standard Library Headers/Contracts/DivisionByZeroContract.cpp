@@ -1,5 +1,7 @@
 //  x86-64 gcc (contracts) -> https://godbolt.org/z/3caEK6x1K
 //  Division by zero with a precondition (Contracts)
+
+#include <contracts>
 #include <iostream>
 
 using namespace std;

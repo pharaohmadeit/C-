@@ -1,6 +1,7 @@
 //  Binary Search with C++26 Contracts Precondtions
 //  Godbolt Compiler | x86-64 gcc (contracts) | Flags: "-std=c++2a -fcontracts -fcontract-build-level=audit"
 
+#include <contracts>
 #include <algorithm>
 #include <vector>
 #include <iostream>
