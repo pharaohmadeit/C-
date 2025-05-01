@@ -1,4 +1,4 @@
-# Contract Assertions -> C++26
+# Contract Assertions (since C++26)
 
 Contract assertions allow the programmer to specify properties of the state of the program that are expected to hold at certain points during execution
 
